@@ -1,0 +1,15 @@
+
+.grid-row {
+    display: flex;
+}
+
+.draw-block {
+  border-color: black;  
+  border-style: solid;
+  height: 2px;
+  width: 2px;
+}
+
+.top {
+    color: red;
+}

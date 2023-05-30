@@ -17,13 +17,29 @@ function make_grid(grid_dim, draw_function) {
 }
 
 function set_draw_function(draw_function) {
+    console.log('Down');
     const grid_blocks = document.querySelectorAll('.draw-block');
     grid_blocks.forEach((element) => {
         element.addEventListener('mouseover', (e) => {
-           e.srcElement.style.backgroundColor = "black"; 
+           e.target.style.backgroundColor = "black"; 
         });
     });
 }
+
+function remove_draw_function(draw_function) {
+    console.log('Up');
+    const grid_blocks = document.querySelectorAll('.draw-block');
+    grid_blocks.forEach((element) => {
+        element.removeEventListener('mouseover', (e) => {
+           e.target.style.backgroundColor = "black"; 
+        });
+    });
+}
+
 make_grid(16);
-set_draw_function(sketch);
+const draw_grid = document.querySelector('#draw-grid');
+draw_grid.addEventListener('mousedown', set_draw_function);
+draw_grid.addEventListener('mouseup', remove_draw_function, false);
+//set_draw_function(sketch);
+
 console.log('made');
